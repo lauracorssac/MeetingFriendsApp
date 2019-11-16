@@ -2,8 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:meeting_friends/Meeting.dart';
 import 'package:http/http.dart' as http;
+import 'package:meeting_friends/MeetingDetails.dart';
 import 'dart:async';
 import 'dart:convert';
+
+import 'package:meeting_friends/MeetingForm.dart';
 
 class _TimelineHomePageState extends State<TimelineHomePage> {
 
@@ -37,7 +40,26 @@ class _TimelineHomePageState extends State<TimelineHomePage> {
       subtitle: Text(
         meeting.description
       ),
+      onTap: () => _meetingTapped(meeting),
     );
+  }
+
+  _showMeetingForm() {
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MeetingForm()),
+    );
+
+  }
+
+  _meetingTapped(Meeting meeting) {
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MeetingDetails()),
+    );
+
   }
 
   @override
@@ -47,6 +69,12 @@ class _TimelineHomePageState extends State<TimelineHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        actions: <Widget>[
+          new IconButton(
+            icon: new Icon(Icons.add),
+            onPressed: () => _showMeetingForm(),
+        ),
+        ],
       ),
       body: Center(
         child: FutureBuilder(
