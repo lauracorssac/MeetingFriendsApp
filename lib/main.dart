@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meeting_friends/TimeLineHomePageV2.dart';
 import 'package:meeting_friends/TimelineHomePage.dart';
 
 void main() => runApp(MyApp());
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.indigo),
-      home: TimelineHomePage(title: 'Your Meetings'),
+      home: TimelineHomePageV2(title: 'Your Meetings'),
     );
   }
 }

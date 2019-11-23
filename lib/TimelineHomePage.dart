@@ -10,15 +10,6 @@ import 'package:meeting_friends/MeetingForm.dart';
 
 class _TimelineHomePageState extends State<TimelineHomePage> {
 
-
-  Future<List<Meeting>> meetings;
-
-  @override
-  void initState() {
-    super.initState();
-    meetings = getMeetings();
-  }
-
   Future<List<Meeting>> getMeetings() async {
     final response =  await http.get('http://www.mocky.io/v2/5dcf50d53000008500931e00');
 
@@ -78,7 +69,7 @@ class _TimelineHomePageState extends State<TimelineHomePage> {
       ),
       body: Center(
         child: FutureBuilder(
-          future: meetings,
+          future: getMeetings(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
