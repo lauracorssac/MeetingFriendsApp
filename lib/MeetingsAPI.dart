@@ -8,7 +8,7 @@ class MeetingsAPI {
 
   Future<List<Meeting>> getMeetings() async {
     final response = await http.get(
-        'http://www.mocky.io/v2/5dcf50d53000008500931e00');
+        'http://www.mocky.io/v2/5dd979aa3200005f009a87f0');
 
     if (response.statusCode == 200) {
       // If the call to the server was successful, parse the JSON.
