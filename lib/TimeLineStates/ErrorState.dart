@@ -2,9 +2,9 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:meeting_friends/StateContext.dart';
-import 'package:meeting_friends/TimeLineLoadingState.dart';
-import 'package:meeting_friends/TimeLineState.dart';
+import 'package:meeting_friends/TimeLineStates/StateContext.dart';
+import 'package:meeting_friends/TimeLineStates/TimeLineLoadingState.dart';
+import 'package:meeting_friends/TimeLineStates/TimeLineState.dart';
 
 class ErrorState implements TimeLineState {
   @override

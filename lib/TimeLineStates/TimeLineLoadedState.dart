@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:meeting_friends/Meeting.dart';
-import 'package:meeting_friends/MeetingDetails.dart';
-import 'package:meeting_friends/StateContext.dart';
-import 'package:meeting_friends/TimeLineState.dart';
+import 'package:meeting_friends/Router.dart';
+import 'package:meeting_friends/TimeLineStates/StateContext.dart';
+import 'package:meeting_friends/TimeLineStates/TimeLineState.dart';
 
 class TimeLineLoadedState implements TimeLineState {
 
@@ -13,10 +13,7 @@ class TimeLineLoadedState implements TimeLineState {
 
   _meetingTapped(Meeting meeting) {
 
-//    Navigator.push(
-//      context,
-//      MaterialPageRoute(builder: (context) => MeetingDetails()),
-//    );
+    Router().navigateToMeetingDetails(meeting);
 
   }
 

@@ -3,15 +3,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:meeting_friends/MeetingForm.dart';
-import 'package:meeting_friends/StateContext.dart';
-import 'package:meeting_friends/TimeLineLoadingState.dart';
-import 'package:meeting_friends/TimeLineState.dart';
+import 'package:meeting_friends/Router.dart';
+import 'package:meeting_friends/TimeLineStates/StateContext.dart';
+import 'package:meeting_friends/TimeLineStates/TimeLineLoadingState.dart';
+import 'package:meeting_friends/TimeLineStates/TimeLineState.dart';
 
 class _TimeLineV2State extends State<TimelineHomePageV2> {
 
   var _stateContext = StateContext();
 
   _TimeLineV2State() {
+
     _changeState();
   }
 
@@ -22,6 +24,9 @@ class _TimeLineV2State extends State<TimelineHomePageV2> {
   @override
   Widget build(BuildContext context) {
 
+    Router router = Router();
+    router.buildContext = context;
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -30,7 +35,7 @@ class _TimeLineV2State extends State<TimelineHomePageV2> {
         actions: <Widget>[
           new IconButton(
             icon: new Icon(Icons.add),
-            onPressed: () => _showMeetingForm(),
+            onPressed: () => _showMeetingForm(context),
           ),
         ],
       ),
@@ -51,11 +56,9 @@ class _TimeLineV2State extends State<TimelineHomePageV2> {
     super.dispose();
   }
 
-  _showMeetingForm() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => MeetingForm()),
-    );
+  _showMeetingForm(BuildContext context) {
+
+    Router().navigateToNewMeeting();
   }
 
 

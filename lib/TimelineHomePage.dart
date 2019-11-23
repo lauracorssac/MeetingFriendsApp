@@ -48,7 +48,7 @@ class _TimelineHomePageState extends State<TimelineHomePage> {
 
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MeetingDetails()),
+      MaterialPageRoute(builder: (context) => MeetingDetails(meeting)),
     );
 
   }

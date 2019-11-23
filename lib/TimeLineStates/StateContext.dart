@@ -1,9 +1,9 @@
 
 import 'dart:async';
 
-import 'package:meeting_friends/EmptyState.dart';
-import 'package:meeting_friends/TimeLineLoadingState.dart';
-import 'package:meeting_friends/TimeLineState.dart';
+import 'package:meeting_friends/TimeLineStates/EmptyState.dart';
+import 'package:meeting_friends/TimeLineStates/TimeLineLoadingState.dart';
+import 'package:meeting_friends/TimeLineStates/TimeLineState.dart';
 
 
 class StateContext {
