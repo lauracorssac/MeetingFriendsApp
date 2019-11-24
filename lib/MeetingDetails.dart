@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:meeting_friends/Models/Colors.dart';
 import 'package:meeting_friends/Models/Meeting.dart';
 
 class MeetingDetails extends StatelessWidget {
@@ -19,62 +20,56 @@ class MeetingDetails extends StatelessWidget {
       body:
           ListView(
             children: [
-              Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                            _meeting.title,
-                            style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold)
-                        )
-                      ),
-                     )
-                  ]),
-              Row(
-                  children:[
-                    Expanded(
-                      child:
-                        Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Text(_meeting.date,
-                            style: TextStyle(color: Colors.grey,
-                                fontSize: 20,
-                                fontWeight: FontWeight.normal)
-                        ),
+              ListTile(
+                  title: Text(_meeting.title,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold
                       )
-                    )
-                  ]),
+                  )
+              ),
               Divider(thickness: 1.0, color: Colors.grey),
-              Row(
-                  children: [
-                    Expanded(
-                        child: Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                            _meeting.description,
-                              style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.normal)
-                          )
-                        )
-                    )
-                  ]),
+              ListTile(
+                  title: Text(_meeting.date,
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal
+                      )
+                  )
+              ),
               Divider(thickness: 1.0, color: Colors.grey),
-              Row(
-                  children: [
-                    Padding(padding: EdgeInsets.all(10),child: Icon(Icons.location_on, color: Colors.grey)),
-                    Expanded(
-                      child: Text(_meeting.location.toString(),
-                          style: TextStyle(color: Colors.grey, fontSize: 20)
-                      ),
-                    )
-
-                  ])
+              ListTile(
+                leading: Icon(Icons.location_on, color: AppColors.mainColor),
+                  title: Text(_meeting.place,
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal
+                      )
+                  )
+              ),
+              Divider(thickness: 1.0, color: Colors.grey),
+              ListTile(
+                  title: Text(_meeting.price,
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal
+                      )
+                  )
+              ),
+              Divider(thickness: 1.0, color: Colors.grey),
+              ListTile(
+                  title: Text(_meeting.description,
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal
+                      )
+                  )
+              ),
             ])
     );
   }

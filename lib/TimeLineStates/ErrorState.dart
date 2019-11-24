@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:meeting_friends/Models/Strings.dart';
 import 'package:meeting_friends/TimeLineStates/StateContext.dart';
 import 'package:meeting_friends/TimeLineStates/TimeLineLoadingState.dart';
 import 'package:meeting_friends/TimeLineStates/TimeLineState.dart';
@@ -15,7 +16,7 @@ class ErrorState implements TimeLineState {
   @override
   Widget render() {
     return Text(
-      'Oops! Something went wrong...',
+      Strings.genericErrorMessage,
       style: TextStyle(
         color: Colors.red,
         fontSize: 24.0,
