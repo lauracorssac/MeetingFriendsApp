@@ -1,5 +1,5 @@
 
-import 'package:meeting_friends/Meeting.dart';
+import 'package:meeting_friends/Models/Meeting.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';

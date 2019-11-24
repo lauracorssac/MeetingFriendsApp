@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:meeting_friends/Meeting.dart';
+import 'package:meeting_friends/Models/Meeting.dart';
 import 'package:meeting_friends/Router.dart';
 import 'package:meeting_friends/TimeLineStates/StateContext.dart';
 import 'package:meeting_friends/TimeLineStates/TimeLineState.dart';

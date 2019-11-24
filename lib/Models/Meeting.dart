@@ -1,6 +1,6 @@
 
 
-import 'package:meeting_friends/Location.dart';
+import 'package:meeting_friends/Models/Location.dart';
 
 class Meeting {
 

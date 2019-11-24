@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:meeting_friends/Meeting.dart';
+import 'package:meeting_friends/Models/Meeting.dart';
 import 'package:meeting_friends/MeetingDetails.dart';
 import 'package:meeting_friends/MeetingForm.dart';
 
