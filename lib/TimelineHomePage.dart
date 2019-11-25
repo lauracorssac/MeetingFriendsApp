@@ -11,7 +11,9 @@ import 'package:meeting_friends/MeetingForm.dart';
 class _TimelineHomePageState extends State<TimelineHomePage> {
 
   Future<List<Meeting>> getMeetings() async {
-    final response =  await http.get('http://www.mocky.io/v2/5dcf50d53000008500931e00');
+
+    final response = await http.get("http://www.mocky.io/v2/5ddb214b3100006500605f44");
+    //final response =  await http.get('http://www.mocky.io/v2/5dcf50d53000008500931e00');
 
     if (response.statusCode == 200) {
       // If the call to the server was successful, parse the JSON.

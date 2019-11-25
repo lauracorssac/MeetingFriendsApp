@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:meeting_friends/Models/Strings.dart';
 import 'package:meeting_friends/TimeLineStates/StateContext.dart';
 import 'package:meeting_friends/TimeLineStates/TimeLineState.dart';
 import 'package:meeting_friends/TimeLineStates/TimeLineLoadingState.dart';
@@ -13,10 +14,15 @@ class TimeLineEmptyState implements TimeLineState {
 
   @override
   Widget render() {
-    return Text(
-      'No Results',
-      style: TextStyle(fontSize: 24.0),
-      textAlign: TextAlign.center,
+
+    return Flex(
+      children: <Widget>[
+        Text(
+        Strings.noResults,
+          style: TextStyle(fontSize: 24.0),
+          textAlign: TextAlign.center,
+        )
+      ],
     );
   }
 }

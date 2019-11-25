@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meeting_friends/Models/Colors.dart';
+import 'package:meeting_friends/Models/Strings.dart';
 import 'package:meeting_friends/TimeLineHomePageV2.dart';
 import 'package:meeting_friends/TimelineHomePage.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: AppColors.mainColor),
-      home: TimelineHomePageV2(title: 'Suas reuniões'),
+      home: TimelineHomePageV2(title: Strings.mainNavTitle),
     );
   }
 }

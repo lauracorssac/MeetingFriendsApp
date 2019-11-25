@@ -1,19 +1,23 @@
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:meeting_friends/MeetingsAPI.dart';
 import 'package:meeting_friends/Models/Meeting.dart';
+import 'package:meeting_friends/Models/Strings.dart';
+import 'package:meeting_friends/Service/ServiceAdapter.dart';
+import 'package:meeting_friends/Service/ServiceSingleton.dart';
 
 class MeetingForm extends StatelessWidget {
 
   final _formKey = GlobalKey<FormState>();
-  final MeetingsAPI _api = MeetingsAPI();
+  final ServiceAdapter _api = ServiceSingleton().service;
   Meeting _meeting = new Meeting();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Nova reunião")
+        title: Text(Strings.newMeetingNavTitle)
       ),
       body: Form(
         key: _formKey,
@@ -81,7 +85,7 @@ class MeetingForm extends StatelessWidget {
                 } else {
                   print("deu ruim");
                 }},
-                child: Text('Feito')
+                child: Text(Strings.newMeetingDoneButtonTitle)
             )
           ],
         ),

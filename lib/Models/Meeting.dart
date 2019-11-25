@@ -13,13 +13,24 @@ class Meeting {
 
   factory Meeting.fromJson(Map<String, dynamic> json) {
 
+    String title = json['eventName'] as String;
+    String description = json['description'] as String;
+    String date = json['date'] as String;
+    String price = json['cost'] as String;
+    String place = json['place'] as String;
+    String creator = json['creator'] as String;
+
+    if ([title, date, place].map( (e) => e == null).contains(true)) {
+      throw Exception('Failed to get meeting');
+    }
+
     return Meeting(
-      title: json['eventName'],
-      description: json['description'],
-      date: json['date'],
-      price: json['cost'],
-      place: json['place'],
-      creator: json['creator']
+      title: title,
+      description: description != null ? description :  "",
+      date: date,
+      price: price != null ? price : "",
+      place: place,
+      creator: creator != null ? creator : ""
     );
   }
 
