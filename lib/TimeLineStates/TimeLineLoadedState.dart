@@ -41,9 +41,11 @@ class TimeLineLoadedState implements TimeLineState {
 
     return ListView.builder(
         itemCount: meetings.length,
-        itemBuilder: (context, int) {
-          return _buildRow(meetings[int]);
-    });
+        itemBuilder: (context, int) => Padding(
+          padding: EdgeInsets.all(8.0),
+          child: _buildRow(meetings[int]),
+        )
+    );
   }
 
 }

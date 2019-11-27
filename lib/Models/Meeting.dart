@@ -1,4 +1,4 @@
-
+import 'package:meeting_friends/Models/Strings.dart';
 
 class Meeting {
 
@@ -10,6 +10,7 @@ class Meeting {
   String creator;
 
   Meeting({this.title, this.description, this.date, this.place, this.price, this.creator});
+  //Meeting(String title, String description, String date, String place, String price, String creator);
 
   factory Meeting.fromJson(Map<String, dynamic> json) {
 
@@ -33,5 +34,15 @@ class Meeting {
       creator: creator != null ? creator : ""
     );
   }
+
+  Map<String, dynamic> toJson() =>
+      {
+        'eventName': title,
+        'description': description,
+        'date': date,
+        'cost': price,
+        'place': place,
+        'creator': creator,
+      };
 
 }

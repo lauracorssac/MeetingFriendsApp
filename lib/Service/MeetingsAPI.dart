@@ -14,7 +14,6 @@ class MeetingsAPIMock implements ServiceAdapter {
 
     if (response.statusCode == 200) {
 
-        print("heeeeyyyyyy");
         List<Meeting> meetings =  (json.decode(response.body) as List).map((e) =>
             Meeting.fromJson(e)).toList();
         return meetings;
@@ -26,10 +25,15 @@ class MeetingsAPIMock implements ServiceAdapter {
 
   Future<bool> saveMeeting(Meeting meeting) async {
 
-    String json = jsonEncode(meeting);
 
-    final response = await http.post("http://www.mocky.io/v2/5ddae8193100003803605efc", body: json);
+    print("hellowwwww");
+    Map<String, dynamic> meetingJson = meeting.toJson();
 
+    http.Response response = await http.post("http://www.mocky.io/v2/5dddc2042f00002e697eab69",
+        headers: { 'content-type': 'application/json' },
+        body: json.encode(meetingJson));
+
+    print("hello");
     if (response.statusCode == 200) {
       return true;
     } else {

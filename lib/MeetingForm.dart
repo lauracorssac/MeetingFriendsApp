@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:meeting_friends/Models/Meeting.dart';
 import 'package:meeting_friends/Models/Strings.dart';
+import 'package:meeting_friends/Router.dart';
 import 'package:meeting_friends/Service/ServiceAdapter.dart';
 import 'package:meeting_friends/Service/ServiceSingleton.dart';
 
@@ -80,16 +81,40 @@ class MeetingForm extends StatelessWidget {
 
                 _meeting.creator = "";
                 if (_formKey.currentState.validate()) {
+                  Navigator.pop(context);
                   var success = await _api.saveMeeting(_meeting);
-                  print(success);
-                } else {
-                  print("deu ruim");
-                }},
+
+                  if (success) {
+                    _ratingErrorDialog(context, "alooo");
+                  } else  {
+                    _ratingErrorDialog(context, "upssss");
+                  }
+                }
+                },
                 child: Text(Strings.newMeetingDoneButtonTitle)
             )
           ],
         ),
       ),
+    );
+  }
+
+  Future<Null> _ratingErrorDialog(BuildContext context, String msg) async {
+    // showDialog is a built-in Flutter method.
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('msg'),
+          content: Text(Strings.genericErrorMessage),
+          actions: [
+            FlatButton(
+              child: Text('Fechar'),
+              onPressed: () => Navigator.of(context).pop(),
+            )
+          ],
+        );
+      },
     );
   }
 }

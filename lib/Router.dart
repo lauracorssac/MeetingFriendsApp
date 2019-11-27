@@ -31,4 +31,8 @@ class Router {
     );
   }
 
+  navigateBackToHome() {
+    Navigator.pop(this.buildContext);
+  }
+
 }
