@@ -76,40 +76,65 @@ class MeetingForm extends StatelessWidget {
                 onSaved: (text) => _meeting.price = text,
               ),
             ),
-            RaisedButton(
-              onPressed: () async {
+            SnackBarBody(_formKey, _meeting)
 
-                _meeting.creator = "";
-                if (_formKey.currentState.validate()) {
-                  Navigator.pop(context);
-                  var success = await _api.saveMeeting(_meeting);
-
-                  if (success) {
-                    _ratingErrorDialog(context, "alooo");
-                  } else  {
-                    _ratingErrorDialog(context, "upssss");
-                  }
-                }
-                },
-                child: Text(Strings.newMeetingDoneButtonTitle)
-            )
           ],
         ),
       ),
     );
   }
+}
 
-  Future<Null> _ratingErrorDialog(BuildContext context, String msg) async {
+class SnackBarBody extends StatelessWidget {
+
+  GlobalKey<FormState> _formKey;
+  Meeting _meeting;
+  final ServiceAdapter _api = ServiceSingleton().service;
+
+  SnackBarBody( GlobalKey<FormState> formKey, Meeting meeting) {
+    _meeting = meeting;
+    _formKey = formKey;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: RaisedButton(
+        child: Text(Strings.newMeetingDoneButtonTitle),
+        onPressed: () async {
+
+          if (_formKey.currentState.validate() ) {
+            Scaffold.of(context).showSnackBar(
+              SnackBar(
+                content: Text(Strings.loadingMessage),
+              ),
+            );
+
+            var result = await _api.saveMeeting(_meeting);
+            if (result) {
+              Navigator.pop(context);
+            } else {
+              _ratingErrorDialog(context);
+            }
+
+          }
+
+        },
+      ),
+    );
+  }
+
+  Future<Null> _ratingErrorDialog(BuildContext context) async {
     // showDialog is a built-in Flutter method.
     return showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('msg'),
-          content: Text(Strings.genericErrorMessage),
+          title: Text(Strings.genericErrorMessage),
+          content: Text(Strings.genericErrorDescription),
           actions: [
             FlatButton(
-              child: Text('Fechar'),
+              child: Text(Strings.close),
               onPressed: () => Navigator.of(context).pop(),
             )
           ],

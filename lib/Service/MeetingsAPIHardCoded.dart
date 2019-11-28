@@ -33,7 +33,7 @@ class MeetingsAPIHardCoded implements ServiceAdapter {
 
   Future<bool> saveMeeting(Meeting meeting) async {
 
-    return Future.delayed(const Duration(milliseconds: 500), () => true);
+    return Future.delayed(const Duration(milliseconds: 3000), () => true);
 
   }
 }
