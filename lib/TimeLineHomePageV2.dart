@@ -3,13 +3,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:meeting_friends/Router.dart';
-import 'package:meeting_friends/TimeLineStates/StateContext.dart';
+import 'package:meeting_friends/TimeLineStates/TimeLineStateContext.dart';
 import 'package:meeting_friends/TimeLineStates/TimeLineLoadingState.dart';
 import 'package:meeting_friends/TimeLineStates/TimeLineState.dart';
 
 class _TimeLineV2State extends State<TimelineHomePageV2> {
 
-  var _stateContext = StateContext();
+  var _stateContext = TimeLineStateContext();
 
   _TimeLineV2State() {
 

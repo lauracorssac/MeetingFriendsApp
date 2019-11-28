@@ -1,19 +1,19 @@
 
 import 'dart:async';
 
-import 'package:meeting_friends/TimeLineStates/EmptyState.dart';
+import 'package:meeting_friends/TimeLineStates/TimeLineEmptyState.dart';
 import 'package:meeting_friends/TimeLineStates/TimeLineLoadingState.dart';
 import 'package:meeting_friends/TimeLineStates/TimeLineState.dart';
 
 
-class StateContext {
+class TimeLineStateContext {
   StreamController<TimeLineState> _stateStream = StreamController<TimeLineState>();
   Sink<TimeLineState> get _inState => _stateStream.sink;
   Stream<TimeLineState> get outState => _stateStream.stream;
 
   TimeLineState _currentState;
 
-  StateContext() {
+  TimeLineStateContext() {
     _currentState = TimeLineLoadingState();
     _addCurrentStateToStream();
   }

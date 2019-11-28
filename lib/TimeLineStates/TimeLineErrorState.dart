@@ -3,13 +3,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:meeting_friends/Models/Strings.dart';
-import 'package:meeting_friends/TimeLineStates/StateContext.dart';
+import 'package:meeting_friends/TimeLineStates/TimeLineStateContext.dart';
 import 'package:meeting_friends/TimeLineStates/TimeLineLoadingState.dart';
 import 'package:meeting_friends/TimeLineStates/TimeLineState.dart';
 
-class ErrorState implements TimeLineState {
+class TimeLineErrorState implements TimeLineState {
   @override
-  Future nextState(StateContext context) async {
+  Future nextState(TimeLineStateContext context) async {
     context.setState(TimeLineLoadingState());
   }
 

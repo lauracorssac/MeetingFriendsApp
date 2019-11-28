@@ -25,15 +25,12 @@ class MeetingsAPIMock implements ServiceAdapter {
 
   Future<bool> saveMeeting(Meeting meeting) async {
 
-
-    print("hellowwwww");
     Map<String, dynamic> meetingJson = meeting.toJson();
 
     http.Response response = await http.post("http://www.mocky.io/v2/5dddc2042f00002e697eab69",
         headers: { 'content-type': 'application/json' },
         body: json.encode(meetingJson));
 
-    print("hello");
     if (response.statusCode == 200) {
       return true;
     } else {

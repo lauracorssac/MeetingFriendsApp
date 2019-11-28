@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:meeting_friends/Models/Meeting.dart';
 import 'package:meeting_friends/Router.dart';
-import 'package:meeting_friends/TimeLineStates/StateContext.dart';
+import 'package:meeting_friends/TimeLineStates/TimeLineStateContext.dart';
 import 'package:meeting_friends/TimeLineStates/TimeLineState.dart';
 
 class TimeLineLoadedState implements TimeLineState {
@@ -30,7 +30,7 @@ class TimeLineLoadedState implements TimeLineState {
   }
 
   @override
-  Future nextState(StateContext context) {
+  Future nextState(TimeLineStateContext context) {
 
     return null;
 
